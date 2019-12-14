@@ -1,0 +1,39 @@
+section{
+  background-color: #eeeeee;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-areas:  "title title"
+                        "products resume";
+  background: #eeeeee;
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+}
+
+.title{
+  grid-area: title;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  max-height: 15%;
+  align-items: center;
+}
+
+.title a{
+  font-size: 22px;
+}
+
+.products{
+  grid-area: products;
+}
+
+.resume{
+  grid-area: resume;
+}
+
+h1 {
+  margin: 0;
+  font-size: 46px;
+}
+

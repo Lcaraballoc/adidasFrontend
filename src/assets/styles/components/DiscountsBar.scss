@@ -1,0 +1,31 @@
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.discount-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 2px solid gray;
+  padding: 8px 0;
+}
+
+.discount-container a {
+  color: gray;
+}
+
+.discount-container ol {
+  display: flex;
+  height: inherit;
+}
+
+.discount-container a {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  padding: 0 80px;
+}
