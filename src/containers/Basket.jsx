@@ -3,14 +3,13 @@ import Header from '../components/Header';
 import Discounts from '../components/DiscountsBar';
 import Mainboard from '../components/Mainboard';
 
-const App = () => {
+const Basket = () => {
   return (
     <div>
-      <Header />
       <Discounts />
       <Mainboard />
     </div>
   );
 };
 
-export default App;
+export default Basket;
