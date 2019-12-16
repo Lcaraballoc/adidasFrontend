@@ -27,7 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductInBasket = () => {
+const ProductInBasket = ({ view_list, name, model_number, pricing_information, attribute_list, variation_list }) => {
+  const { image_url } = view_list[0];
+  const { currentPrice } = pricing_information;
+  const {color } = attribute_list;
+  const {size} = variation_list[0];
+  console.log(image_url);
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -35,20 +40,20 @@ const ProductInBasket = () => {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt='complex' src={shoesImage} />
+              <img className={classes.img} alt='complex' src={image_url} />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction='column' spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant='subtitle1'>
-                  Standard license
+                  {`${name} ${model_number}`}
                 </Typography>
                 <Typography variant='body2' gutterBottom>
-                  Full resolution 1920x1080 • JPEG
+                  {color}
                 </Typography>
                 <Typography variant='body2' color='textSecondary'>
-                  ID: 1030114
+                  {size}
                 </Typography>
               </Grid>
               <Grid item>
@@ -58,7 +63,7 @@ const ProductInBasket = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant='subtitle1'>$19.00</Typography>
+              <Typography variant='subtitle1'>{`$${currentPrice}`}</Typography>
             </Grid>
           </Grid>
         </Grid>
