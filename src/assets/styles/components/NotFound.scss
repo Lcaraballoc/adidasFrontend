@@ -4,7 +4,6 @@
   justify-content: center;
   flex-direction: column;
   padding: 0px30px;
-  /* min-height: calc(100vh - 180px); */
 }
 .error__container {
   display: flex;
@@ -16,11 +15,11 @@
 .error__container--title {
   font-size: 60px;
   margin: 0;
-  animation-name: latido;
+  animation-name: beating;
   animation-duration: 5s;
   animation-iteration-count: infinite;
 }
-@keyframes latido {
+@keyframes beating {
   0% {
     transform: scale(1);
   }

@@ -1,28 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Discounts from '../components/DiscountsBar';
-import '../assets/styles/components/Basket.scss';
+import DiscountsBar from '../components/DiscountsBar';
 import ProductInBasket from '../components/ProductInBasket';
 import OrderSummary from '../components/OrderSummary';
+import { calculateTotal } from '../actions';
+import '../assets/styles/components/Basket.scss';
 
-const Basket = ({ productList }) => {
-  console.log(productList);
+const Basket = (props) => {
+
+  const handleTotal = () => {
+    props.calculateTotal();
+  };
+
+  handleTotal();
+
+  const { productList, total } = props;
   return (
     <section>
-      <Discounts />
-      <div className='container'>
-        <div className='title'>
+      <DiscountsBar />
+      <div className='basket__container'>
+        <div className='basket__container--title'>
           <h1>THE BAG</h1>
-          <a href='/'>CONTINUE SHOPPING</a>
-          <h3>TOTAL PRODUCTOS : 100$</h3>
+          <a href='#'>CONTINUE SHOPPING</a>
+          <h3>{`TOTAL PRODUCTOS : $${total}`}</h3>
         </div>
-        <div className='products'>
-          {productList.map((item) =>
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <ProductInBasket key={item.id} {...item} />)
-          }
+        <div className='basket__container--products'>
+          {productList.map((item) => <ProductInBasket key={item.id} {...item} />)}
         </div>
-        <div className='resume'>
+        <div className='basket__container--resume'>
           <OrderSummary />
         </div>
       </div>
@@ -33,7 +38,12 @@ const Basket = ({ productList }) => {
 const mapStateToProps = (state) => {
   return {
     productList: state.products,
+    total: state.total,
   };
 };
 
-export default connect(mapStateToProps, null)(Basket);
+const mapDispathToProps = {
+  calculateTotal,
+};
+
+export default connect(mapStateToProps, mapDispathToProps)(Basket);
