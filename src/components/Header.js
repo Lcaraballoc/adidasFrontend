@@ -56,11 +56,11 @@ const Header = () => {
     <>
       <ThemeProvider theme={theme}>
         <header>
-          <div className='header-container'>
-            <figure className='logo'>
+          <div className='header__container'>
+            <figure className='header__container--logo'>
               <img src={logo} alt='logoIcon' />
             </figure>
-            <form className='search'>
+            <form className='header__container--search'>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
@@ -71,39 +71,38 @@ const Header = () => {
                     root: classes.inputRoot,
                     input: classes.inputInput,
                   }}
-                  inputProps={{ 'aria-label': 'search' }}
                 />
               </div>
             </form>
-            <div className='profile'>
+            <div className='header__container--profile'>
               <ol>
                 <li>
-                  <a className='link' href='#portafolio'>HELP</a>
+                  <a className='link' href='#'>HELP</a>
                 </li>
                 <li>
-                  <a className='link' href='#eventos'>ORDER TRACKER AND RETURNS</a>
+                  <a className='link' href='#'>ORDER TRACKER AND RETURNS</a>
                 </li>
                 <li>
-                  <a className='link' href='#contacto'>JOIN CREATORS CLUB</a>
+                  <a className='link' href='#'>JOIN CREATORS CLUB</a>
                 </li>
                 <li>
-                  <a className='link' href='#contacto'>CREATORS CLUB</a>
+                  <a className='link' href='#'>CREATORS CLUB</a>
                 </li>
                 <li>
-                  <a className='link' href='#contacto'>LOGIN</a>
+                  <a className='link' href='#'>LOGIN</a>
                 </li>
               </ol>
             </div>
-            <div className='info'>
+            <div className='header__container--categories'>
               <ol>
                 <li>
-                  <a className='link' href='#portafolio'>MEN</a>
+                  <a className='link' href='#'>MEN</a>
                 </li>
                 <li>
-                  <a className='link' href='#eventos'>WOMEN</a>
+                  <a className='link' href='#'>WOMEN</a>
                 </li>
                 <li>
-                  <a className='link' href='#contacto'>KIDS</a>
+                  <a className='link' href='#'>KIDS</a>
                 </li>
               </ol>
             </div>

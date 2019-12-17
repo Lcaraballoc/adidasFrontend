@@ -1,53 +1,118 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
   title: {
-    fontSize: 32,
+    fontSize: 26,
     paddingBottom: 16,
+    fontWeight: 'bold',
   },
-  pos: {
-    marginBottom: 12,
+  item: {
+    marginTop: 16,
+  },
+  button: {
+    marginTop: 30,
+    color: 'white',
+    backgroundColor: 'black',
+    '&:hover': {
+      backgroundColor: 'black',
+      borderColor: 'gray',
+      boxShadow: 'none',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: 'gray',
+      borderColor: 'gray',
+    },
   },
 });
 
-export default function SimpleCard() {
+const OrderSummary = (props) => {
   const classes = useStyles();
-
+  const { total, taxes, items } = props;
   return (
     <>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title}>
-                        ORDER SUMMARY
+            ORDER SUMMARY
           </Typography>
-          <Typography variant='h5' component='h2'>
-                        ITEMS :
-          </Typography>
-          <Typography variant='h5' component='h2'>
-                        DELIVERY:
-          </Typography>
-          <Typography variant='h5' component='h2'>
-                        TAXES:
-          </Typography>
-          <Typography variant='h5' component='h2'>
-                        TOTAL:
-          </Typography>
+          <Divider />
+          <Grid container direction='row' justify='space-between' alignItems='center' spacing={2}>
+            <Grid item xs={6}>
+              <Typography className={classes.item} variant='h6' component='h2'>
+                {`${items} Items `}
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography className={classes.item} align='right' variant='h5' component='h2'>
+                {`$${total}`}
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant='h6' component='h2'>
+                Delivery
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography align='right' variant='h5' component='h2'>
+                FREE
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant='h6' component='h2'>
+                Taxes
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography align='right' variant='h5' component='h2'>
+                {`$${taxes}`}
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant='h6' component='h2'>
+                TOTAL
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Divider />
+              <Typography align='right' variant='h5' component='h2'>
+                {`$${total}`}
+              </Typography>
+            </Grid>
+          </Grid>
+          <Button
+            variant='contained'
+            className={classes.button}
+            size='large'
+            fullWidth={true}
+          >
+            Checkout
+          </Button>
         </CardContent>
       </Card>
-      <Button className={classes.button} variant='contained'>Default</Button>
+
     </>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    total: state.total,
+    delivery: state.delivery,
+    taxes: state.taxes,
+    items: state.items,
+  };
+};
+
+export default connect(mapStateToProps, null)(OrderSummary);

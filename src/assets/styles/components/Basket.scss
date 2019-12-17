@@ -1,0 +1,61 @@
+section {
+  background-color: #eeeeee;
+  min-height: 100vh;
+}
+
+.basket__container {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-areas:
+    "title title"
+    "products resume";
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 2% 0 ;
+}
+
+.basket__container--title {
+  grid-area: title;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  align-items: center;
+}
+
+.basket__container--title a {
+  font-size: 1.5em;
+}
+
+.basket__container--title h1{
+    margin: 0;
+    font-size: 3em;
+}
+
+.basket__container--products {
+  grid-area: products;
+}
+
+.basket__container--resume {
+  grid-area: resume;
+}
+
+@media only screen and (max-width: 700px) {
+  .basket__container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title "
+      "products"
+      "resume";
+  }
+  .basket__container--title {
+    grid-template-columns: 1fr;
+  }
+  .basket__container--title a {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .basket__container {
+    max-width: 90%;
+  }
+}

@@ -1,31 +1,29 @@
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-.discount-container {
-  align-items: center;
+.discount__container {
   display: flex;
+  align-items: center;
   justify-content: center;
   background-color: white;
   border-bottom: 2px solid gray;
   padding: 8px 0;
 }
 
-.discount-container a {
+.discount__container ol, ul {
+  display: inherit;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.discount__container a {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
   color: gray;
 }
 
-.discount-container ol {
-  display: flex;
-  height: inherit;
-}
-
-.discount-container a {
-  display: flex;
-  align-items: center;
-  height: inherit;
-  padding: 0 80px;
+@media only screen and (max-width: 700px) {
+  .discount__container {
+    display: none;
+  }
 }
