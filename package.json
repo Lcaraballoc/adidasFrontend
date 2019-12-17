@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --open --mode development"
   },
   "keywords": [],
-  "author": "",
+  "author": "Luis Daniel Caraballo",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.7.2",
