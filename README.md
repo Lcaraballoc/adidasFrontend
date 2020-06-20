@@ -16,3 +16,6 @@ npm install
 npm run start
 ```
 
+### Project Preview
+
+![Foto Proyecto](https://raw.githubusercontent.com/Lcaraballoc/adidasFrontend/master/src/assets/static/addidas.png)
